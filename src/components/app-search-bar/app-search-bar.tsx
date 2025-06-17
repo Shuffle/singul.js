@@ -45,6 +45,11 @@ export class AppSearchBar {
   @Prop() class: string = '';
 
   /**
+   * Custom styles object for complete customization
+   */
+  @Prop() customStyles: string | { [key: string]: any } = {};
+
+  /**
    * Placeholder text for the search input
    */
   @Prop() placeholder: string = 'Search apps...';
@@ -197,14 +202,34 @@ export class AppSearchBar {
     this.selectedIndex = index;
   };
 
+  private getParsedStyles(): { [key: string]: any } {
+    if (typeof this.customStyles === 'string') {
+      try {
+        return JSON.parse(this.customStyles);
+      } catch (error) {
+        console.warn('Invalid JSON in customStyles prop:', error);
+        return {};
+      }
+    }
+    return this.customStyles || {};
+  }
+
   render() {
+    const styles = this.getParsedStyles();
     return (
-      <div class={`search-bar-container ${this.class}`}>
-        <div class="search-input-wrapper">
+      <div 
+        class={`search-bar-container ${this.class}`}
+        style={styles.container || {}}
+      >
+        <div 
+          class="search-input-wrapper"
+          style={styles.inputWrapper || {}}
+        >
           <input
             ref={(el) => (this.inputRef = el)}
             type="text"
             class="search-input"
+            style={styles.input || {}}
             placeholder={this.placeholder}
             value={this.query}
             onInput={this.handleInputChange}
@@ -212,41 +237,76 @@ export class AppSearchBar {
             onKeyDown={this.handleKeyDown}
             autocomplete="off"
           />
-          <div class="search-icon">
+          <div 
+            class="search-icon"
+            style={styles.searchIcon || {}}
+          >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="11" cy="11" r="8"></circle>
               <path d="m21 21-4.35-4.35"></path>
             </svg>
           </div>
           {this.isLoading && (
-            <div class="loading-spinner">
-              <div class="spinner"></div>
+            <div 
+              class="loading-spinner"
+              style={styles.loadingSpinner || {}}
+            >
+              <div 
+                class="spinner"
+                style={styles.spinner || {}}
+              ></div>
             </div>
           )}
         </div>
 
         {this.isOpen && (
-          <div class="dropdown">
+          <div 
+            class="dropdown"
+            style={styles.dropdown || {}}
+          >
             {this.results.length > 0 ? (
               this.results.map((app, index) => (
                 <div
                   key={app.objectID}
                   class={`dropdown-item ${index === this.selectedIndex ? 'selected' : ''}`}
+                  style={{
+                    ...(styles.dropdownItem || {}),
+                    ...(index === this.selectedIndex ? (styles.selectedItem || {}) : {})
+                  }}
                   onClick={() => this.handleResultClick(app)}
                   onMouseEnter={() => this.handleResultMouseEnter(index)}
                 >
-                  <div class="app-info">
+                  <div 
+                    class="app-info"
+                    style={styles.appInfo || {}}
+                  >
                     {app.image_url && (
-                      <img src={app.image_url} alt={app.name} class="app-icon" />
+                      <img 
+                        src={app.image_url} 
+                        alt={app.name} 
+                        class="app-icon"
+                        style={styles.appIcon || {}}
+                      />
                     )}
-                    <div class="app-details">
-                      <span class="app-name">{app.name}</span>
+                    <div 
+                      class="app-details"
+                      style={styles.appDetails || {}}
+                    >
+                      <span 
+                        class="app-name"
+                        style={styles.appName || {}}
+                      >
+                        {app.name}
+                      </span>
                     </div>
                   </div>
                 </div>
               ))
             ) : (
-              <div class="empty-state">
+              <div 
+                class="empty-state"
+                style={styles.emptyState || {}}
+              >
                 No apps found for "{this.query}"
               </div>
             )}

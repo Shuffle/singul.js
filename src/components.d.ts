@@ -19,6 +19,11 @@ export namespace Components {
          */
         "class": string;
         /**
+          * Custom styles object for complete customization
+          * @default {}
+         */
+        "customStyles": string | { [key: string]: any };
+        /**
           * Placeholder text for the search input
           * @default 'Search apps...'
          */
@@ -83,6 +88,11 @@ declare namespace LocalJSX {
           * @default ''
          */
         "class"?: string;
+        /**
+          * Custom styles object for complete customization
+          * @default {}
+         */
+        "customStyles"?: string | { [key: string]: any };
         /**
           * Emitted when an app is selected
          */

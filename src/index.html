@@ -47,10 +47,6 @@
         color: #1f2937;
         font-size: 14px;
       }
-
-      .demo-search {
-        width: 500px;
-      }
     </style>
   </head>
   <body>
@@ -58,8 +54,8 @@
     
       <app-search-bar 
         auth="69060450-0352-42ae-9958-9247f8bcbcc6"
-        placeholder="Search for apps to get authentication URLs..."
-        class="demo-search">
+        placeholder="Search for apps..."
+        >
       </app-search-bar>
     <script>
       document.querySelector('app-search-bar').addEventListener('appSelected', (event) => {

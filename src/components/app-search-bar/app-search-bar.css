@@ -1,8 +1,42 @@
 :host {
+  /* CSS Custom Properties for easy customization */
+  --search-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --search-input-padding: 12px 16px;
+  --search-input-padding-right: 48px;
+  --search-input-border: 1px solid #d1d5db;
+  --search-input-border-radius: 8px;
+  --search-input-bg: #ffffff;
+  --search-input-color: #1f2937;
+  --search-input-font-size: 16px;
+  --search-input-line-height: 1.5;
+  --search-input-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --search-input-focus-border: #3b82f6;
+  --search-input-focus-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 0 0 3px rgba(59, 130, 246, 0.1);
+  --search-placeholder-color: #9ca3af;
+  --search-icon-color: #9ca3af;
+  --search-spinner-border: 2px solid #e5e7eb;
+  --search-spinner-border-top: 2px solid #3b82f6;
+  --dropdown-bg: #ffffff;
+  --dropdown-border: 1px solid #e5e7eb;
+  --dropdown-border-radius: 8px;
+  --dropdown-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --dropdown-max-height: 400px;
+  --dropdown-item-padding: 12px 16px;
+  --dropdown-item-border: 1px solid #f3f4f6;
+  --dropdown-item-hover-bg: #f8fafc;
+  --app-icon-size: 40px;
+  --app-icon-border: 1px solid #e5e7eb;
+  --app-icon-border-radius: 8px;
+  --app-name-font-weight: 600;
+  --app-name-color: #1f2937;
+  --app-name-font-size: 14px;
+  --empty-state-color: #9ca3af;
+  --empty-state-font-size: 14px;
+
   display: block;
   position: relative;
   width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--search-font-family);
 }
 
 .search-bar-container {
@@ -18,26 +52,26 @@
 
 .search-input {
   width: 100%;
-  padding: 12px 16px;
-  padding-right: 48px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  background-color: #ffffff;
-  color: #1f2937;
-  font-size: 16px;
-  line-height: 1.5;
+  padding: var(--search-input-padding);
+  padding-right: var(--search-input-padding-right);
+  border: var(--search-input-border);
+  border-radius: var(--search-input-border-radius);
+  background-color: var(--search-input-bg);
+  color: var(--search-input-color);
+  font-size: var(--search-input-font-size);
+  line-height: var(--search-input-line-height);
   outline: none;
   transition: all 0.2s ease-in-out;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: var(--search-input-shadow);
 }
 
 .search-input::placeholder {
-  color: #9ca3af;
+  color: var(--search-placeholder-color);
 }
 
 .search-input:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: var(--search-input-focus-border);
+  box-shadow: var(--search-input-focus-shadow);
 }
 
 .search-icon {
@@ -45,7 +79,7 @@
   right: 16px;
   top: 50%;
   transform: translateY(-50%);
-  color: #9ca3af;
+  color: var(--search-icon-color);
   pointer-events: none;
   z-index: 1;
 }
@@ -61,8 +95,8 @@
 .spinner {
   width: 16px;
   height: 16px;
-  border: 2px solid #e5e7eb;
-  border-top: 2px solid #3b82f6;
+  border: var(--search-spinner-border);
+  border-top: var(--search-spinner-border-top);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -79,18 +113,18 @@
   right: 0;
   z-index: 1000;
   margin-top: 4px;
-  background-color: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  max-height: 400px;
+  background-color: var(--dropdown-bg);
+  border: var(--dropdown-border);
+  border-radius: var(--dropdown-border-radius);
+  box-shadow: var(--dropdown-shadow);
+  max-height: var(--dropdown-max-height);
   overflow-y: auto;
 }
 
 .dropdown-item {
-  padding: 12px 16px;
+  padding: var(--dropdown-item-padding);
   cursor: pointer;
-  border-bottom: 1px solid #f3f4f6;
+  border-bottom: var(--dropdown-item-border);
   transition: background-color 0.15s ease-in-out;
 }
 
@@ -100,7 +134,7 @@
 
 .dropdown-item:hover,
 .dropdown-item.selected {
-  background-color: #f8fafc;
+  background-color: var(--dropdown-item-hover-bg);
 }
 
 .app-info {
@@ -111,10 +145,10 @@
 }
 
 .app-icon {
-  width: 40px;
-  height: 40px;
-  border: 1px solid black;
-  border-radius: 8px;
+  width: var(--app-icon-size);
+  height: var(--app-icon-size);
+  border: var(--app-icon-border);
+  border-radius: var(--app-icon-border-radius);
   object-fit: cover;
   flex-shrink: 0;
 }
@@ -128,9 +162,9 @@
 
 .app-name {
   display: block;
-  font-weight: 600;
-  color: #1f2937;
-  font-size: 14px;
+  font-weight: var(--app-name-font-weight);
+  color: var(--app-name-color);
+  font-size: var(--app-name-font-size);
   line-height: 1.4;
 }
 
@@ -139,9 +173,9 @@
 .empty-state {
   padding: 16px;
   text-align: center;
-  color: #9ca3af;
+  color: var(--empty-state-color);
   font-style: italic;
-  font-size: 14px;
+  font-size: var(--empty-state-font-size);
 }
 
 /* Mobile responsive */
