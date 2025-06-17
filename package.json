@@ -23,10 +23,6 @@
       "types": "./loader/index.d.ts"
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Shuffle/app-auth-search"
-  },
   "files": [
     "dist/",
     "loader/"
