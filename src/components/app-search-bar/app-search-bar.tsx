@@ -166,8 +166,8 @@ export class AppSearchBar {
     
     this.appSelected.emit({ app, authUrl });
     
-    // Redirect to auth URL
-    window.location.href = authUrl;
+    // Open auth URL in a new tab
+    window.open(authUrl, '_blank');
     
     this.closeDropdown();
   }
