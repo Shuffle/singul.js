@@ -9,22 +9,16 @@ import { AppSelectedEvent } from "./components/app-search-bar/app-search-bar";
 export { AppSelectedEvent } from "./components/app-search-bar/app-search-bar";
 export namespace Components {
     interface AppSearchBar {
-        /**
-          * Auth token for the URL
-         */
         "auth": string;
         /**
-          * Custom CSS class for styling
           * @default ''
          */
         "class": string;
         /**
-          * Custom styles object for complete customization
           * @default {}
          */
         "customStyles": string | { [key: string]: any };
         /**
-          * Placeholder text for the search input
           * @default 'Search apps...'
          */
         "placeholder": string;
@@ -58,26 +52,17 @@ declare global {
 }
 declare namespace LocalJSX {
     interface AppSearchBar {
-        /**
-          * Auth token for the URL
-         */
         "auth": string;
         /**
-          * Custom CSS class for styling
           * @default ''
          */
         "class"?: string;
         /**
-          * Custom styles object for complete customization
           * @default {}
          */
         "customStyles"?: string | { [key: string]: any };
-        /**
-          * Emitted when an app is selected
-         */
         "onAppSelected"?: (event: AppSearchBarCustomEvent<AppSelectedEvent>) => void;
         /**
-          * Placeholder text for the search input
           * @default 'Search apps...'
          */
         "placeholder"?: string;

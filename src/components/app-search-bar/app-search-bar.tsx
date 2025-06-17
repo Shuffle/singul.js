@@ -32,26 +32,12 @@ export interface AppSelectedEvent {
   shadow: true,
 })
 export class AppSearchBar {
+
   @Element() el: HTMLElement;
 
-  /**
-   * Auth token for the URL
-   */
   @Prop() auth!: string;
-
-  /**
-   * Custom CSS class for styling
-   */
   @Prop() class: string = '';
-
-  /**
-   * Custom styles object for complete customization
-   */
   @Prop() customStyles: string | { [key: string]: any } = {};
-
-  /**
-   * Placeholder text for the search input
-   */
   @Prop() placeholder: string = 'Search apps...';
 
   @State() query: string = '';
@@ -60,9 +46,6 @@ export class AppSearchBar {
   @State() isOpen: boolean = false;
   @State() selectedIndex: number = -1;
 
-  /**
-   * Emitted when an app is selected
-   */
   @Event() appSelected: EventEmitter<AppSelectedEvent>;
 
   private searchClient: any;
