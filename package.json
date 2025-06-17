@@ -1,6 +1,6 @@
 {
   "name": "@shufflesoar/app-auth-search",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A cross-framework search bar component for app authentication with Algolia integration",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
