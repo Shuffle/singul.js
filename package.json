@@ -1,5 +1,5 @@
 {
-  "name": "auth-search",
+  "name": "@shuffle/app-auth-search",
   "version": "0.0.1",
   "description": "A cross-framework search bar component for app authentication with Algolia integration",
   "main": "dist/index.cjs.js",
@@ -7,11 +7,11 @@
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/auth-search/auth-search.esm.js",
+  "unpkg": "dist/app-auth-search/app-auth-search.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/auth-search/auth-search.esm.js",
-      "require": "./dist/auth-search/auth-search.cjs.js"
+      "import": "./dist/app-auth-search/app-auth-search.esm.js",
+      "require": "./dist/app-auth-search/app-auth-search.cjs.js"
     },
     "./app-search-bar": {
       "import": "./dist/components/app-search-bar.js",
@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stenciljs/component-starter.git"
+    "url": "https://github.com/yourusername/AuthLink.git"
   },
   "files": [
     "dist/",
@@ -49,5 +49,8 @@
   "license": "MIT",
   "dependencies": {
     "algoliasearch": "^5.27.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
