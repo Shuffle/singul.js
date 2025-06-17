@@ -29,20 +29,6 @@ export namespace Components {
          */
         "placeholder": string;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
 }
 export interface AppSearchBarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -66,15 +52,8 @@ declare global {
         prototype: HTMLAppSearchBarElement;
         new (): HTMLAppSearchBarElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLElementTagNameMap {
         "app-search-bar": HTMLAppSearchBarElement;
-        "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
@@ -103,23 +82,8 @@ declare namespace LocalJSX {
          */
         "placeholder"?: string;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
     interface IntrinsicElements {
         "app-search-bar": AppSearchBar;
-        "my-component": MyComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -127,7 +91,6 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "app-search-bar": LocalJSX.AppSearchBar & JSXBase.HTMLAttributes<HTMLAppSearchBarElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
 }
