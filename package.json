@@ -1,7 +1,7 @@
 {
   "name": "auth-search",
   "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "description": "A cross-framework search bar component for app authentication with Algolia integration",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
@@ -13,9 +13,9 @@
       "import": "./dist/auth-search/auth-search.esm.js",
       "require": "./dist/auth-search/auth-search.cjs.js"
     },
-    "./my-component": {
-      "import": "./dist/components/my-component.js",
-      "types": "./dist/components/my-component.d.ts"
+    "./app-search-bar": {
+      "import": "./dist/components/app-search-bar.js",
+      "types": "./dist/components/app-search-bar.d.ts"
     },
     "./loader": {
       "import": "./loader/index.js",
@@ -46,5 +46,8 @@
     "jest-cli": "^29.7.0",
     "puppeteer": "^24.3.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "algoliasearch": "^5.27.0"
+  }
 }

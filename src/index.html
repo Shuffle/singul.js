@@ -3,12 +3,69 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Stencil Component Starter</title>
+    <title>App Search Bar Demo</title>
 
     <script type="module" src="/build/auth-search.esm.js"></script>
     <script nomodule src="/build/auth-search.js"></script>
+    
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #f8fafc;
+      }
+      
+      h1 {
+        text-align: center;
+        color: #1f2937;
+        margin-bottom: 30px;
+      }
+      
+      .demo-container {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+      
+      .demo-info {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #f0f9ff;
+        border-radius: 8px;
+        border-left: 4px solid #3b82f6;
+      }
+      
+      .demo-info h3 {
+        margin: 0 0 10px 0;
+        color: #1e40af;
+      }
+      
+      .demo-info p {
+        margin: 5px 0;
+        color: #1f2937;
+        font-size: 14px;
+      }
+
+      .demo-search {
+        width: 500px;
+      }
+    </style>
   </head>
   <body>
-    <my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component>
+    <h1>App Search Bar Demo</h1>
+    
+      <app-search-bar 
+        auth="69060450-0352-42ae-9958-9247f8bcbcc6"
+        placeholder="Search for apps to get authentication URLs..."
+        class="demo-search">
+      </app-search-bar>
+    <script>
+      document.querySelector('app-search-bar').addEventListener('appSelected', (event) => {
+        console.log('App selected:', event.detail);
+        alert(`Selected: ${event.detail.app.name}\nAuth URL: ${event.detail.authUrl}`);
+      });
+    </script>
   </body>
 </html>

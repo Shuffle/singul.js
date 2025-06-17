@@ -5,7 +5,25 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { AppSelectedEvent } from "./components/app-search-bar/app-search-bar";
+export { AppSelectedEvent } from "./components/app-search-bar/app-search-bar";
 export namespace Components {
+    interface AppSearchBar {
+        /**
+          * Auth token for the URL
+         */
+        "auth": string;
+        /**
+          * Custom CSS class for styling
+          * @default ''
+         */
+        "class": string;
+        /**
+          * Placeholder text for the search input
+          * @default 'Search apps...'
+         */
+        "placeholder": string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -21,7 +39,28 @@ export namespace Components {
         "middle": string;
     }
 }
+export interface AppSearchBarCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAppSearchBarElement;
+}
 declare global {
+    interface HTMLAppSearchBarElementEventMap {
+        "appSelected": AppSelectedEvent;
+    }
+    interface HTMLAppSearchBarElement extends Components.AppSearchBar, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAppSearchBarElementEventMap>(type: K, listener: (this: HTMLAppSearchBarElement, ev: AppSearchBarCustomEvent<HTMLAppSearchBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAppSearchBarElementEventMap>(type: K, listener: (this: HTMLAppSearchBarElement, ev: AppSearchBarCustomEvent<HTMLAppSearchBarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLAppSearchBarElement: {
+        prototype: HTMLAppSearchBarElement;
+        new (): HTMLAppSearchBarElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -29,10 +68,31 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "app-search-bar": HTMLAppSearchBarElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface AppSearchBar {
+        /**
+          * Auth token for the URL
+         */
+        "auth": string;
+        /**
+          * Custom CSS class for styling
+          * @default ''
+         */
+        "class"?: string;
+        /**
+          * Emitted when an app is selected
+         */
+        "onAppSelected"?: (event: AppSearchBarCustomEvent<AppSelectedEvent>) => void;
+        /**
+          * Placeholder text for the search input
+          * @default 'Search apps...'
+         */
+        "placeholder"?: string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -48,6 +108,7 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "app-search-bar": AppSearchBar;
         "my-component": MyComponent;
     }
 }
@@ -55,6 +116,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "app-search-bar": LocalJSX.AppSearchBar & JSXBase.HTMLAttributes<HTMLAppSearchBarElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
