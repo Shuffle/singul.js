@@ -18,13 +18,13 @@ A cross-framework search bar component for app authentication with Algolia integ
 First, install the package in your project:
 
 ```bash
-npm install @shufflesoar/app-auth-search
+npm install @singulio/app-auth-search
 ```
 
 or
 
 ```bash
-yarn add @shufflesoar/app-auth-search
+yarn add @singulio/app-auth-search
 ```
 
 ## Framework Integration
@@ -36,7 +36,7 @@ React integration is straightforward with a simple wrapper component:
 #### Step 1: Install the library
 
 ```bash
-npm install @shufflesoar/app-auth-search
+npm install @singulio/app-auth-search
 ```
 
 #### Step 2: Create a wrapper component
@@ -45,7 +45,7 @@ Create a new component to wrap the web component:
 
 ```jsx
 import React, { useEffect } from 'react';
-import '@shufflesoar/app-auth-search'; // Import the package
+import '@singulio/app-auth-search'; // Import the package
 
 function SearchBar({ authToken }) {
   return (
@@ -90,7 +90,7 @@ Vue integration requires registering the custom elements and then using them dir
 #### Step 1: Install the library
 
 ```bash
-npm install @shufflesoar/app-auth-search
+npm install @singulio/app-auth-search
 ```
 
 #### Step 2: Register the custom elements
@@ -98,7 +98,7 @@ npm install @shufflesoar/app-auth-search
 In your App.vue file, add:
 
 ```javascript
-import { defineCustomElements } from '@shufflesoar/app-auth-search/loader';
+import { defineCustomElements } from '@singulio/app-auth-search/loader';
 
 // Register the custom elements
 defineCustomElements();
