@@ -50,15 +50,15 @@
     </style>
   </head>
   <body>
-    <h1>App Search Bar Demo</h1>
+    <h1>Singul Component Demo</h1>
     
-      <app-search-bar 
+      <singul-search 
         auth="69060450-0352-42ae-9958-9247f8bcbcc6"
         placeholder="Search for apps..."
         >
-      </app-search-bar>
+      </singul-search>
     <script>
-      document.querySelector('app-search-bar').addEventListener('appSelected', (event) => {
+      document.querySelector('singul-search').addEventListener('appSelected', (event) => {
         console.log('App selected:', event.detail);
         alert(`Selected: ${event.detail.app.name}\nAuth URL: ${event.detail.authUrl}`);
       });

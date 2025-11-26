@@ -27,11 +27,11 @@ export interface AppSelectedEvent {
 }
 
 @Component({
-  tag: 'app-search-bar',
-  styleUrl: 'app-search-bar.css',
+  tag: 'singul-search',
+  styleUrl: 'singul.css',
   shadow: true,
 })
-export class AppSearchBar {
+export class Singul {
 
   @Element() el: HTMLElement;
 

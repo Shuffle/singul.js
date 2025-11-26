@@ -13,9 +13,9 @@
       "import": "./dist/singul/singul.esm.js",
       "require": "./dist/singul/singul.cjs.js"
     },
-    "./app-search-bar": {
-      "import": "./dist/components/app-search-bar.js",
-      "types": "./dist/components/app-search-bar.d.ts"
+    "./singul-search": {
+      "import": "./dist/components/singul-search.js",
+      "types": "./dist/components/singul-search.d.ts"
     },
     "./loader": {
       "import": "./loader/index.js",
