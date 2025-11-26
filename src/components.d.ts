@@ -5,10 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AppSelectedEvent } from "./components/app-search-bar/app-search-bar";
-export { AppSelectedEvent } from "./components/app-search-bar/app-search-bar";
+import { AppSelectedEvent } from "./components/singul/singul";
+export { AppSelectedEvent } from "./components/singul/singul";
 export namespace Components {
-    interface AppSearchBar {
+    interface SingulJs {
         "auth": string;
         /**
           * @default ''
@@ -24,34 +24,34 @@ export namespace Components {
         "placeholder": string;
     }
 }
-export interface AppSearchBarCustomEvent<T> extends CustomEvent<T> {
+export interface SingulJsCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLAppSearchBarElement;
+    target: HTMLSingulJsElement;
 }
 declare global {
-    interface HTMLAppSearchBarElementEventMap {
+    interface HTMLSingulJsElementEventMap {
         "appSelected": AppSelectedEvent;
     }
-    interface HTMLAppSearchBarElement extends Components.AppSearchBar, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLAppSearchBarElementEventMap>(type: K, listener: (this: HTMLAppSearchBarElement, ev: AppSearchBarCustomEvent<HTMLAppSearchBarElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+    interface HTMLSingulJsElement extends Components.SingulJs, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSingulJsElementEventMap>(type: K, listener: (this: HTMLSingulJsElement, ev: SingulJsCustomEvent<HTMLSingulJsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
         addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLAppSearchBarElementEventMap>(type: K, listener: (this: HTMLAppSearchBarElement, ev: AppSearchBarCustomEvent<HTMLAppSearchBarElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSingulJsElementEventMap>(type: K, listener: (this: HTMLSingulJsElement, ev: SingulJsCustomEvent<HTMLSingulJsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
         removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
-    var HTMLAppSearchBarElement: {
-        prototype: HTMLAppSearchBarElement;
-        new (): HTMLAppSearchBarElement;
+    var HTMLSingulJsElement: {
+        prototype: HTMLSingulJsElement;
+        new (): HTMLSingulJsElement;
     };
     interface HTMLElementTagNameMap {
-        "app-search-bar": HTMLAppSearchBarElement;
+        "singul-js": HTMLSingulJsElement;
     }
 }
 declare namespace LocalJSX {
-    interface AppSearchBar {
+    interface SingulJs {
         "auth": string;
         /**
           * @default ''
@@ -61,21 +61,21 @@ declare namespace LocalJSX {
           * @default {}
          */
         "customStyles"?: string | { [key: string]: any };
-        "onAppSelected"?: (event: AppSearchBarCustomEvent<AppSelectedEvent>) => void;
+        "onAppSelected"?: (event: SingulJsCustomEvent<AppSelectedEvent>) => void;
         /**
           * @default 'Search apps...'
          */
         "placeholder"?: string;
     }
     interface IntrinsicElements {
-        "app-search-bar": AppSearchBar;
+        "singul-js": SingulJs;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "app-search-bar": LocalJSX.AppSearchBar & JSXBase.HTMLAttributes<HTMLAppSearchBarElement>;
+            "singul-js": LocalJSX.SingulJs & JSXBase.HTMLAttributes<HTMLSingulJsElement>;
         }
     }
 }
