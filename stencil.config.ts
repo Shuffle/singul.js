@@ -1,7 +1,7 @@
 import { Config } from '@stencil/core';
 
 export const config: Config = {
-  namespace: 'app-auth-search',
+  namespace: 'singul',
   outputTargets: [
     {
       type: 'dist',

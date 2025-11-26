@@ -18,13 +18,13 @@ A Singul frontend function for app search, control and authentication.
 First, install the package in your project:
 
 ```bash
-npm install @singulio/app-auth-search
+npm install @singulio/singul
 ```
 
 or
 
 ```bash
-yarn add @singulio/app-auth-search
+yarn add @singulio/singul
 ```
 
 ## Framework Integration
@@ -36,7 +36,7 @@ React integration is straightforward with a simple wrapper component:
 #### Step 1: Install the library
 
 ```bash
-npm install @singulio/app-auth-search
+npm install @singulio/singul
 ```
 
 #### Step 2: Create a wrapper component
@@ -45,7 +45,7 @@ Create a new component to wrap the web component:
 
 ```jsx
 import React, { useEffect } from 'react';
-import '@singulio/app-auth-search'; // Import the package
+import '@singulio/singul'; // Import the package
 
 function SearchBar({ authToken }) {
   return (
@@ -90,7 +90,7 @@ Vue integration requires registering the custom elements and then using them dir
 #### Step 1: Install the library
 
 ```bash
-npm install @singulio/app-auth-search
+npm install @singulio/singul
 ```
 
 #### Step 2: Register the custom elements
@@ -98,7 +98,7 @@ npm install @singulio/app-auth-search
 In your App.vue file, add:
 
 ```javascript
-import { defineCustomElements } from '@singulio/app-auth-search/loader';
+import { defineCustomElements } from '@singulio/singul/loader';
 
 // Register the custom elements
 defineCustomElements();

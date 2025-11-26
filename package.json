@@ -1,17 +1,17 @@
 {
-  "name": "@singulio/app-auth-search",
-  "version": "0.0.3",
-  "description": "A cross-framework search bar component for app authentication with Algolia integration",
+  "name": "@singulio/singul",
+  "version": "0.0.4",
+  "description": "The singul frontend component",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/app-auth-search/app-auth-search.esm.js",
+  "unpkg": "dist/singul/singul.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/app-auth-search/app-auth-search.esm.js",
-      "require": "./dist/app-auth-search/app-auth-search.cjs.js"
+      "import": "./dist/singul/singul.esm.js",
+      "require": "./dist/singul/singul.cjs.js"
     },
     "./app-search-bar": {
       "import": "./dist/components/app-search-bar.js",
