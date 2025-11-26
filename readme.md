@@ -1,6 +1,14 @@
-# Singul Frontend Library
+<h1 align="center">
 
+[<img src="https://shuffler.io/images/logos/singul.svg" alt="Singul Logo" width="100"/>](https://singul.io)
+
+Singul Frontend Library
+
+</h1>
+<h4 align="center">
 A Singul frontend function for app search, control and authentication.
+</h4>
+
 
 ## Table of Contents
 
