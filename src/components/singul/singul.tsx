@@ -31,7 +31,7 @@ export interface AppSelectedEvent {
   styleUrl: 'singul.css',
   shadow: true,
 })
-export class AppSearchBar {
+export class Singul {
 
   @Element() el: HTMLElement;
 
