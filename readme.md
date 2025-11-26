@@ -1,4 +1,4 @@
-# App Auth Search
+# Singul Frontend Library
 
 A cross-framework search bar component for app authentication with Algolia integration.
 
