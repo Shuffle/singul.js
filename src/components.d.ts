@@ -5,8 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AppSelectedEvent } from "./components/singul/singul";
-export { AppSelectedEvent } from "./components/singul/singul";
+import { AppSelectedEvent } from "./components/singul/singul.helpers";
+export { AppSelectedEvent } from "./components/singul/singul.helpers";
 export namespace Components {
     interface SingulJs {
         "auth": string;

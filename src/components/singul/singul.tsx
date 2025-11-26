@@ -1,30 +1,6 @@
 import { Component, Prop, State, Element, Event, EventEmitter, h } from '@stencil/core';
 import { algoliasearch } from 'algoliasearch';
-
-export interface AlgoliaSearchApp {
-  name: string;
-  description: string;
-  objectID: string;
-  creator: string;
-  app_version: string;
-  image_url: string;
-  time_edited: number;
-  generated: boolean;
-  invalid: boolean;
-  priority: number;
-  actions: number;
-  tags: string[];
-  accessible_by: string[];
-  categories: string[];
-  action_labels: string[];
-  triggers: string[];
-  verified: boolean;
-}
-
-export interface AppSelectedEvent {
-  app: AlgoliaSearchApp;
-  authUrl: string;
-}
+import { AlgoliaSearchApp, AppSelectedEvent  } from './singul.helpers';
 
 @Component({
   tag: 'singul-js',
