@@ -1,6 +1,6 @@
 # Singul Frontend Library
 
-A cross-framework search bar component for app authentication with Algolia integration.
+A Singul frontend function for app search, control and authentication.
 
 ## Table of Contents
 
