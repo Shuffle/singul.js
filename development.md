@@ -93,10 +93,48 @@ dist/                    # Built files (after npm run build)
 
 
 
+## Use In Local Next.js App (Live Reload)
+
+Follow these steps to use the library in any local Next.js project while you develop:
+
+1. **Run the Stencil watcher in your library folder**  
+   ```bash
+   cd path/to/your/library   # e.g., ./singuljs
+   npm install
+   npm run build -- --watch
+   ```
+   Keep this watcher running so it rebuilds `dist/` whenever you edit the components.
+
+2. **Install the local package inside your Next.js app folder**  
+   ```bash
+   cd path/to/your/next-app   # e.g., ./singul-website/nextjs-app
+   npm install
+   npm install ../relative-path-to-library   # e.g., ../singuljs (if both folders sit under the same parent directory)
+   npm run dev
+   ```
+   Using `npm install ../relative-path-to-library` adds a file-reference dependency, so `import { defineCustomElements } from 'singuljs/loader';` resolves to your local build without publishing or linking.
+
+3. **Register the custom element once inside a client component**  
+   ```tsx
+   'use client';
+
+   import { useEffect } from 'react';
+   import { defineCustomElements } from 'singuljs/loader';
+
+   const AUTH_TOKEN_PLACEHOLDER = 'YOUR_AUTH';
+
+   export default function SingulInitializer() {
+     useEffect(() => {
+       defineCustomElements(window);
+     }, []);
+
+     return <singul-js auth={AUTH_TOKEN_PLACEHOLDER} />;
+   }
+   ```
+   Render `SingulInitializer` anywhere in your Next.js client components (for example in `HeroSection`). While both dev servers run, every rebuild from the watcher is picked up live by the Next.js dev server.
 
 
-
-## Publishing to NPM
+## Publishing to NPM (Production Push)
 
 ### First Time Setup
 

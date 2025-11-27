@@ -8,6 +8,6 @@
  * to consume components of this package as outlined in the `README.md`.
  */
 
-export { Singul } from './components/singul';
+export { Singul } from './components/singul/singul';
 export { format } from './utils/utils';
 export type * from './components.d.ts';

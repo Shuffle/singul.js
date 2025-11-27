@@ -52,13 +52,13 @@
   <body>
     <h1>Singul Component Demo</h1>
     
-      <singul-search 
+      <singul-js 
         auth="69060450-0352-42ae-9958-9247f8bcbcc6"
         placeholder="Search for apps..."
         >
-      </singul-search>
+      </singul-js>
     <script>
-      document.querySelector('singul-search').addEventListener('appSelected', (event) => {
+      document.querySelector('singul-js').addEventListener('appSelected', (event) => {
         console.log('App selected:', event.detail);
         alert(`Selected: ${event.detail.app.name}\nAuth URL: ${event.detail.authUrl}`);
       });
