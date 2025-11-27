@@ -26,7 +26,7 @@ This will:
 - Changes will auto-reload in the browser
 - Check `src/index.html` to see your component demo (served at `http://localhost:3333`)
 
-## 📝 Available Scripts
+## Available Scripts
 
 | Command | What it does |
 |---------|-------------|
@@ -35,7 +35,7 @@ This will:
 | `npm test` | Run tests |
 | `npm run test.watch` | Run tests in watch mode |
 
-## 🛠️ Development Workflow
+## Development Workflow
 
 ### Making Changes
 
@@ -90,4 +90,67 @@ www/
 
 dist/                    # Built files (after npm run build)
 ```
+
+
+
+
+
+
+## Publishing to NPM
+
+### First Time Setup
+
+If you haven't published before, you'll need to login to npm:
+
+```bash
+npm login
+```
+
+Enter your npm username, password, and email. Make sure you have access to the `@singulio` organization.
+
+### Publishing Steps
+
+1. **Update the version** in `package.json`. Just bump the number:
+   - Bug fix? Change `0.0.4` → `0.0.5`
+   - New feature? Change `0.0.4` → `0.1.0`
+   - Breaking change? Change `0.0.4` → `1.0.0`
+
+2. **Build the package**:
+   ```bash
+   npm run build
+   ```
+
+3. **Publish it**:
+   ```bash
+   npm publish
+   ```
+
+That's it! Your package is now on npm.
+
+### Quick Check
+
+After publishing, you can verify it worked:
+- Check it on npm: https://www.npmjs.com/package/@singulio/singul
+- Or try installing it: `npm install @singulio/singul`
+
+### If Something Goes Wrong
+
+- **Permission denied** - Make sure you're logged in (`npm whoami`) and have access to `@singulio`
+- **Version already exists** - You need to use a new version number
+- **Package name invalid** - Check that you're part of the `@singulio` organization
+
+### Typical Workflow
+
+```bash
+# Update version
+In package.json
+
+# Build
+npm run build
+
+# Publish
+npm publish
+
+# Push to git
+Push the latest changes to git.
 
