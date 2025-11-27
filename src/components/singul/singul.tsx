@@ -7,21 +7,26 @@ import { AlgoliaSearchApp, AppSelectedEvent  } from './singul.helpers';
   styleUrl: 'singul.css',
   shadow: true,
 })
+
 export class Singul {
 
   @Element() el: HTMLElement;
 
+  // So basically this are the props that are passed to the component. (Same in React we pass props to the component)
   @Prop() auth!: string;
   @Prop() class: string = '';
   @Prop() customStyles: string | { [key: string]: any } = {};
   @Prop() placeholder: string = 'Search apps...';
 
+
+  // These are the states that are used to store the data for the component (Same in React we use useState to store the data)
   @State() query: string = '';
   @State() results: AlgoliaSearchApp[] = [];
   @State() isLoading: boolean = false;
   @State() isOpen: boolean = false;
   @State() selectedIndex: number = -1;
 
+  // These are the events simply called as functions that are used to emit the data to the parent component (Same in React we use useEffect to emit the data to the parent component)
   @Event() appSelected: EventEmitter<AppSelectedEvent>;
 
   private searchClient: any;
@@ -43,6 +48,8 @@ export class Singul {
     document.addEventListener('click', this.handleDocumentClick);
   }
 
+  // When to use private : When the function is only used within the component and not by the parent component.
+  // Use public when the function is used by the parent component.
   private initializeAlgolia() {
     this.searchClient = algoliasearch(
       "JNSS5CFDZZ",

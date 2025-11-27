@@ -56,13 +56,13 @@ The dev server serves the demo page (auto-generated from `src/index.html`). You 
 Edit `src/index.html` to change props:
 
 ```html
-<singul-search 
+<singul-js 
   auth="your-auth-token"
   placeholder="Search apps..."
-></singul-search>
+></singul-js>
 ```
 
-**Note:** Web components must have a dash (-) in their tag name, so we use `singul-search` instead of `singul`.
+**Note:** Web components must have a dash (-) in their tag name, so we use `singul-js` instead of `singul`.
 
 ## Building for Production
 
