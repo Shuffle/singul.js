@@ -26,12 +26,18 @@
       "import": "./react/index.js",
       "require": "./react/index.js",
       "types": "./react/index.d.ts"
+    },
+    "./vue": {
+      "import": "./vue/index.js",
+      "require": "./vue/index.js",
+      "types": "./vue/index.d.ts"
     }
   },
   "files": [
     "dist/",
     "loader/",
-    "react/"
+    "react/",
+    "vue/"
   ],
   "scripts": {
     "build": "stencil build",

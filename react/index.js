@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const React = require('react');
 
-const DEFAULT_PLACEHOLDER = 'Search apps...';
 const CUSTOM_STYLES_ATTR = 'custom-styles';
 
 const STYLE_KEYS = [
@@ -53,7 +52,7 @@ const normalizeCustomStyles = (styles) => {
 const SingulJS = React.forwardRef(function SingulJS(
   {
     authToken,
-    placeholder = DEFAULT_PLACEHOLDER,
+    placeholder = "Search apps...",
     customStyles,
     onAppSelected,
     ...rest
