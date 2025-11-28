@@ -21,11 +21,17 @@
       "import": "./loader/index.js",
       "require": "./loader/index.cjs.js",
       "types": "./loader/index.d.ts"
+    },
+    "./react": {
+      "import": "./react/index.js",
+      "require": "./react/index.js",
+      "types": "./react/index.d.ts"
     }
   },
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "react/"
   ],
   "scripts": {
     "build": "stencil build",
