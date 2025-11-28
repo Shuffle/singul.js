@@ -15,6 +15,7 @@ A Singul frontend function for app search, control and authentication.
 - [Installation](#installation)
 - [Framework Integration](#framework-integration)
   - [React](#react-integration)
+  - [Nextjs](#react-integration)
   - [Vue](#vue-integration)
 - [Component Properties](#component-properties)
 - [Events](#events)
@@ -37,7 +38,7 @@ yarn add @singulio/singul
 
 ## Framework Integration
 
-### React Integration
+### React or Nextjs Integration
 
 ```jsx
 import { SingulJS } from '@singulio/singul/react';
