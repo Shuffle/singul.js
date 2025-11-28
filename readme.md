@@ -39,94 +39,54 @@ yarn add @singulio/singul
 
 ### React Integration
 
-React integration is straightforward with a simple wrapper component:
-
-#### Step 1: Install the library
-
-```bash
-npm install @singulio/singul
-```
-
-#### Step 2: Create a wrapper component
-
-Create a new component to wrap the web component:
-
 ```jsx
-import React, { useEffect } from 'react';
-import '@singulio/singul'; // Import the package
+import { SingulJS } from '@singulio/singul/react';
 
-function SearchBar({ authToken }) {
+const AUTH_TOKEN = 'replace-with-your-token';
+const CUSTOM_STYLES = { container: { width: '400px' } };
+
+export default function App() {
+
   return (
-    <div
-    style={{width: "400px"}}
-    >
-    <app-search-bar
-      auth={authToken}
-      placeholder="Search apps..."
-    ></app-search-bar>
-    </div>
-  );
-}
-
-export default SearchBar;
-```
-
-#### Step 3: Use the component in your application
-
-```jsx
-import AppSearchBar from './AppSearchBarWrapper';
-
-function App() {
-  return (
-    <div className="App">
-      <h1>App Auth Search</h1>
-      <SearchBar 
-        auth="your-auth-token" 
-        placeholder="Find an app..."
+    <section>
+      <h1>Singul Search</h1>
+      <SingulJS
+        authToken={AUTH_TOKEN}
+        placeholder="Your placeholder.."
+        customStyles={CUSTOM_STYLES}
       />
-    </div>
+    </section>
   );
 }
-
-export default App;
 ```
 
 ### Vue Integration
 
-Vue integration requires registering the custom elements and then using them directly in templates.
-
-#### Step 1: Install the library
-
-```bash
-npm install @singulio/singul
-```
-
-#### Step 2: Register the custom elements
-
-In your App.vue file, add:
-
-```javascript
-import { defineCustomElements } from '@singulio/singul/loader';
-
-// Register the custom elements
-defineCustomElements();
-```
-
-#### Step 3: Use the component in any Vue template
-
 ```vue
 <template>
-  <div>
-    <h1>App Search</h1>
-    <app-search-bar
-      auth="your-auth-token"
-      placeholder="Find an app..."
-    ></app-search-bar>
-  </div>
+      <SingulJS
+        authToken="dasd"
+        placeholder="Search apps..."
+        :customStyles="{ input: { width: '4000px' } }"
+        @appSelected="handleAppSelected"
+      />
 </template>
+
+<script>
+import { SingulJS } from '@singulio/singul/vue';
+
+export default {
+  name: 'HelloWorld',
+  props: { msg: String },
+  components: { SingulJS },
+  methods: {
+    handleAppSelected(detail) {
+      console.log('selected app', detail);
+    },
+  },
+};
+</script>
 ```
-
-
 
 ## Component Properties
 
@@ -137,14 +97,6 @@ The `app-search-bar` component accepts the following properties:
 | auth          | string (required)      | Auth token for the URL                          | undefined        |
 | customStyles  | string or object       | Custom styles object for complete customization | {}               |
 | placeholder   | string                 | Placeholder text for the search input           | 'Search apps...' |
-
-## Events
-
-The component emits the following events:
-
-| Event        | Description                     | Event Detail Type    |
-|--------------|----------------------------------|----------------------|
-| appSelected  | Emitted when an app is selected | AppSelectedEvent     |
 
 ## Styling Options
 
@@ -162,9 +114,3 @@ For styling options, refer to the [Customization Guide](CUSTOMIZATION_GUIDE.md) 
 
 2. **Styling not applying**: Check that you're using the correct CSS selectors or custom style properties.
 
-3. **Events not firing**: Verify that you've attached event listeners correctly for your framework.
-
-### Framework-Specific Notes
-
-- **React**: React passes all props as strings, so objects like `customStyles` need to be stringified.
-- **Vue**: Use `:custom-styles` with `JSON.stringify()` to pass object properties.
