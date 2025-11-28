@@ -15,7 +15,7 @@ A Singul frontend function for app search, control and authentication.
 - [Installation](#installation)
 - [Framework Integration](#framework-integration)
   - [React](#react-integration)
-  - [Nextjs](#react-integration)
+  - [Nextjs](#nextjs-inintegration)
   - [Vue](#vue-integration)
 - [Component Properties](#component-properties)
 - [Events](#events)
@@ -38,7 +38,7 @@ yarn add @singulio/singul
 
 ## Framework Integration
 
-### React or Nextjs Integration
+### React Integration
 
 ```jsx
 import { SingulJS } from '@singulio/singul/react';
@@ -47,6 +47,29 @@ const AUTH_TOKEN = 'replace-with-your-token';
 const CUSTOM_STYLES = { container: { width: '400px' } };
 
 export default function App() {
+
+  return (
+    <section>
+      <h1>Singul Search</h1>
+      <SingulJS
+        authToken={AUTH_TOKEN}
+        placeholder="Your placeholder.."
+        customStyles={CUSTOM_STYLES}
+      />
+    </section>
+  );
+}
+```
+
+### Nextjs Integration
+
+```jsx
+import { SingulJS } from '@singulio/singul/react';
+
+const AUTH_TOKEN = 'replace-with-your-token';
+const CUSTOM_STYLES = { container: { width: '400px' } };
+
+export default function page() {
 
   return (
     <section>
