@@ -64,6 +64,16 @@ const SingulJS = React.forwardRef(function SingulJS(
     ensureCustomElements();
   }, []);
 
+// Store custom handler on window
+React.useEffect(() => {
+  if (onAppSelected) {
+    window.onAppSelected = onAppSelected;
+  }
+  return () => { 
+    delete window.onAppSelected; 
+  };
+}, [onAppSelected]);
+
   const handleAppSelected = React.useCallback(
     (event) => {
       if (onAppSelected) {
@@ -72,6 +82,7 @@ const SingulJS = React.forwardRef(function SingulJS(
     },
     [onAppSelected],
   );
+
 
   const elementProps = {
     ...rest,

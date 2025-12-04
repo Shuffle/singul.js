@@ -144,17 +144,19 @@ export class Singul {
       this.isLoading = false;
     }
   }
-
+  
   private selectApp(app: AlgoliaSearchApp) {
-
-    // Log for testing
-    // console.log('This app has been selected by user', app);
     const authUrl = `https://shuffler.io/appauth?app_id=${app.objectID}&auth=${this.auth}`;
     
     this.appSelected.emit({ app, authUrl });
     
-    // Open auth URL in a new tab
-    window.open(authUrl, '_blank');
+    // Check if custom handler exists on window
+    if (typeof (window as any).onAppSelected === 'function') {
+      (window as any).onAppSelected({ app, authUrl });
+    } else {
+      // Default behavior
+      window.open(authUrl, '_blank');
+    }
     
     this.closeDropdown();
   }
