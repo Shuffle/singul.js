@@ -16,7 +16,8 @@ export class Singul {
   @Prop() auth!: string;
   @Prop() class: string = '';
   @Prop() customStyles: string | { [key: string]: any } = {};
-  @Prop() placeholder: string = 'Search apps...';
+  @Prop() placeholder: string;
+  @Prop() testingProp: string;
 
 
   // These are the states that are used to store the data for the component (Same in React we use useState to store the data)
@@ -72,7 +73,7 @@ export class Singul {
       clearTimeout(this.debounceTimer);
     }
 
-    if (this.query.trim().length === 0) {
+    if (this.query?.trim()?.length === 0) {
       this.closeDropdown();
       return;
     }
@@ -83,7 +84,7 @@ export class Singul {
   };
 
   private handleInputFocus = () => {
-    if (this.query.trim().length > 0 && this.results.length > 0) {
+    if (this.query?.trim()?.length > 0 && this.results.length > 0) {
       this.isOpen = true;
     }
   };
@@ -145,6 +146,9 @@ export class Singul {
   }
 
   private selectApp(app: AlgoliaSearchApp) {
+
+    // Log for testing
+    // console.log('This app has been selected by user', app);
     const authUrl = `https://shuffler.io/appauth?app_id=${app.objectID}&auth=${this.auth}`;
     
     this.appSelected.emit({ app, authUrl });
@@ -196,7 +200,7 @@ export class Singul {
             type="text"
             class="search-input"
             style={styles.input || {}}
-            placeholder={this.placeholder}
+            placeholder={this.placeholder || 'Search apps yayyy...'}
             value={this.query}
             onInput={this.handleInputChange}
             onFocus={this.handleInputFocus}
@@ -224,6 +228,7 @@ export class Singul {
             </div>
           )}
         </div>
+        <button onClick={() => console.log('This is a test prop: ' + this.testingProp)}>Click me</button>
 
         {this.isOpen && (
           <div 

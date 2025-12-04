@@ -18,10 +18,8 @@ export namespace Components {
           * @default {}
          */
         "customStyles": string | { [key: string]: any };
-        /**
-          * @default 'Search apps...'
-         */
         "placeholder": string;
+        "testingProp": string;
     }
 }
 export interface SingulJsCustomEvent<T> extends CustomEvent<T> {
@@ -62,10 +60,8 @@ declare namespace LocalJSX {
          */
         "customStyles"?: string | { [key: string]: any };
         "onAppSelected"?: (event: SingulJsCustomEvent<AppSelectedEvent>) => void;
-        /**
-          * @default 'Search apps...'
-         */
         "placeholder"?: string;
+        "testingProp"?: string;
     }
     interface IntrinsicElements {
         "singul-js": SingulJs;

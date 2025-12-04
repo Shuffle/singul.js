@@ -52,9 +52,10 @@ const normalizeCustomStyles = (styles) => {
 const SingulJS = React.forwardRef(function SingulJS(
   {
     authToken,
-    placeholder = "Search apps...",
+    placeholder,
     customStyles,
     onAppSelected,
+    testingProp,
     ...rest
   },
   forwardedRef,
@@ -77,6 +78,7 @@ const SingulJS = React.forwardRef(function SingulJS(
     ref: forwardedRef,
     auth: authToken,
     placeholder,
+    testingProp,
     [CUSTOM_STYLES_ATTR]: customStyles
       ? JSON.stringify(normalizeCustomStyles(customStyles))
       : undefined,

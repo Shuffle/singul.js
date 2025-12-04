@@ -41,7 +41,7 @@
   "scripts": {
     "build": "stencil build && npm run build:vue",
     "build:vue": "tsc -p tsconfig.vue.json",
-    "start": "stencil build --dev --watch --serve",
+    "start": "stencil build --watch",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate"
