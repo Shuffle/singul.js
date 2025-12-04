@@ -1,0 +1,25 @@
+# Source maps (huge files, not needed in production)
+*.map
+
+# Source files
+src/
+*.ts
+*.tsx
+!*.d.ts
+
+# Development files
+node_modules/
+.stencil/
+www/
+.cursor/
+*.config.ts
+*.config.js
+tsconfig*.json
+
+# Test files
+*.spec.ts
+*.test.ts
+*.e2e.ts
+
+# Build artifacts that aren't needed
+dist/**/*.map

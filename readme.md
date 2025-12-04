@@ -111,30 +111,3 @@ export default {
 };
 </script>
 ```
-
-## Component Properties
-
-The `app-search-bar` component accepts the following properties:
-
-| Property      | Type                  | Description                                     | Default          |
-|---------------|------------------------|------------------------------------------------|------------------|
-| auth          | string (required)      | Auth token for the URL                          | undefined        |
-| customStyles  | string or object       | Custom styles object for complete customization | {}               |
-| placeholder   | string                 | Placeholder text for the search input           | 'Search apps...' |
-
-## Styling Options
-
-For styling options, refer to the [Customization Guide](CUSTOMIZATION_GUIDE.md) which provides detailed information on:
-
-- CSS Variables
-- Direct Styles
-- CSS Classes
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Component not rendering**: Ensure you've called `defineCustomElements()` before using the component.
-
-2. **Styling not applying**: Check that you're using the correct CSS selectors or custom style properties.
-
