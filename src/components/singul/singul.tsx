@@ -231,6 +231,10 @@ export class Singul {
           )}
         </div>
         <button onClick={() => console.log('This is a test prop: ' + this.testingProp)}>Click me</button>
+        <button onClick={() => {
+          console.log("The function has been called");
+          console.log(this.testingProp);
+        }}>Click me Yayy</button>
 
         {this.isOpen && (
           <div 

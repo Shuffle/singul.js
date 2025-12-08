@@ -1,5 +1,15 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const React = require('react');
+let React = require('react');
+
+// Fallback if require returns null (for some bundler configurations)
+if (!React && typeof window !== 'undefined' && window.React) {
+  React = window.React;
+}
+
+if (!React) {
+  throw new Error('React is required. Please install react in your project.');
+}
+
 
 const CUSTOM_STYLES_ATTR = 'custom-styles';
 
@@ -83,13 +93,13 @@ React.useEffect(() => {
     [onAppSelected],
   );
 
-
+  console.log("The testing prop is: " + testingProp);
   const elementProps = {
     ...rest,
     ref: forwardedRef,
     auth: authToken,
     placeholder,
-    testingProp,
+    testingProp: testingProp,
     [CUSTOM_STYLES_ATTR]: customStyles
       ? JSON.stringify(normalizeCustomStyles(customStyles))
       : undefined,

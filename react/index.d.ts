@@ -2,6 +2,7 @@ import type {
   CSSProperties,
   HTMLAttributes,
   Ref,
+  JSX
 } from 'react';
 
 export interface SingulJSProps extends Omit<HTMLAttributes<HTMLElement>, 'onChange'> {
