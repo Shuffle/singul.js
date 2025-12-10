@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": false,
+    "outDir": "../../dist/vue",
+    "rootDir": ".",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "es2022",
+    "skipLibCheck": true,
+    "types": [],
+    "baseUrl": "../..",
+    "paths": {
+      "@singulio/singul": ["./dist/types/index.d.ts"],
+      "@singulio/singul/*": ["./dist/types/*"],
+      "@singulio/singul/loader": ["./loader/index.d.ts"]
+    }
+  },
+  "include": ["./index.ts", "./proxies.ts"],
+  "exclude": []
+}
+

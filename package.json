@@ -23,9 +23,9 @@
       "types": "./loader/index.d.ts"
     },
     "./react": {
-      "import": "./react/index.js",
-      "require": "./react/index.js",
-      "types": "./react/index.d.ts"
+      "import": "./dist/react/index.js",
+      "require": "./dist/react/index.js",
+      "types": "./dist/react/index.d.ts"
     },
     "./vue": {
       "import": "./dist/vue/index.js",
@@ -36,12 +36,12 @@
   "files": [
     "dist/",
     "loader/",
-    "react/",
     "README.md"
   ],
   "scripts": {
-    "build": "stencil build && npm run build:vue",
-    "build:vue": "tsc -p tsconfig.vue.json",
+    "build": "stencil build && npm run build:vue && npm run build:react",
+    "build:vue": "tsc -p src/vue/tsconfig.vue.json",
+    "build:react": "tsc -p src/react/tsconfig.react.json",
     "start": "stencil build --watch",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
@@ -54,12 +54,10 @@
     "@types/node": "^22.13.5",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
-    "puppeteer": "^24.3.0",
-    "typescript": "^5.9.3"
+    "puppeteer": "^24.3.0"
   },
   "license": "MIT",
   "dependencies": {
-    "@types/react": "^19.2.7",
     "algoliasearch": "^5.27.0"
   },
   "publishConfig": {

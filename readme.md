@@ -89,7 +89,7 @@ export default function page() {
 ```vue
 <template>
       <SingulJS
-        authToken="dasd"
+        auth="dasd"
         placeholder="Search apps..."
         :customStyles="{ input: { width: '4000px' } }"
         @appSelected="handleAppSelected"
